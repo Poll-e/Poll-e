@@ -5,9 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PollCreateComponent } from './components/poll-create/poll-create.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
