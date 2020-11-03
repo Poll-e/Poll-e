@@ -1,0 +1,14 @@
+<div class="col d-flex justify-content-center">
+  <div class="card col-lg-6 m-4">
+    <div class="card-body">
+      <p class="m-2">Enter your code, please</p>
+      <div>
+        <input id="code" type="text" class="form-control " [(ngModel)]="code" placeholder="Your Code"
+          ngbTooltip="Tooltip on top" />
+      </div>
+      <div class="m-2">
+        <button class="btn btn-info" (click)="gotoRoom()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
