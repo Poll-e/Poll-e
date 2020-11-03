@@ -1,0 +1,27 @@
+<style>
+  .hello {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>
+
+<div class="container">
+  <div class="hello">
+    <div class="card-body">
+
+      <p class="m-2">Welcome, {{this.name}}</p>
+      <div>
+        <div class="m-2">
+          <button class="btn-lg btn-info" (click)="chooseNew()">I want to create a new poll</button>
+        </div>
+        <div class="m-2">
+          <button class="btn-lg btn-info">I want to join to an existing poll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

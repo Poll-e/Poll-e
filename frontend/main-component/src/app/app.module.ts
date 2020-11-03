@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { PollCreateComponent } from './components/poll-create/poll-create.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PathChooserComponent } from './components/path-chooser/path-chooser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PollCreateComponent,
-    NameEditorComponent
+    NameEditorComponent,
+    PathChooserComponent
   ],
   imports: [
     BrowserModule,

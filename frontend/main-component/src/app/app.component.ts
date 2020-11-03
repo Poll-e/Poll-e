@@ -12,11 +12,8 @@ export class AppComponent {
   constructor(private modalService: NgbModal, private router: Router) {}
 
   title = 'main-component';
-  savedName = '';
-  name = "";
 
   ngOnInit() {
-    console.log(localStorage.getItem('username'));
     this.openDialog();
   }
 
@@ -27,7 +24,7 @@ export class AppComponent {
         centered: true,
       })
       .result.then(() => {
-        this.name = localStorage.getItem("username");
+        this.router.navigate(['choose']);
       });
   }
 }
