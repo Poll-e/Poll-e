@@ -33,9 +33,9 @@ namespace PollE.Controllers
         };
 
         [HttpGet]
-        IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return categories;
+            return Ok(categories);
         }
     }
 }
