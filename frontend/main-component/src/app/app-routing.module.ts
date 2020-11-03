@@ -5,7 +5,7 @@ import {PollRoomComponent} from './components/poll-room/poll-room.component';
 
 const routes: Routes = [
   {path: 'polls/create', component: PollCreateComponent},
-  {path: 'polls/:id', component: PollRoomComponent}
+  {path: 'polls/:code', component: PollRoomComponent}
 ];
 
 @NgModule({

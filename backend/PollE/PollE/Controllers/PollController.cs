@@ -31,7 +31,7 @@ namespace PollE.Controllers
         [Route("{Code?}")]
         public Poll Get([FromRoute] string Code)
         {
-            return new Poll{Title = "Tilte",Code = Code, Category = "testcat"};
+            return new Poll{Title = "Tilte", Code = Code, Category = "testcat"};
         }
     }
 }
