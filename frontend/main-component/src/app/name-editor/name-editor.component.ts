@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {Component, Output} from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-name-editor',
@@ -7,8 +7,10 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./name-editor.component.css'],
 })
 export class NameEditorComponent {
-  constructor() {}
+  name: string;
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
   close() {
+    localStorage.setItem("usernam", name);
   }
 }
