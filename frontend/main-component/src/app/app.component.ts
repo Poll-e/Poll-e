@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +9,26 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private router: Router) {}
 
   title = 'main-component';
   savedName = '';
   name = `Welcome, ${this.savedName}`;
 
   ngOnInit() {
+    console.log(localStorage.getItem('username'));
     this.openDialog();
   }
+
   openDialog() {
     this.modalService
       .open(NameEditorComponent, {
         size: 'sm',
         centered: true,
       })
-      .result.then((result) => (console.log({result})));
+      .result.then(() => {
+        this.router.navigateByUrl('/');
+        console.log({ name: this.savedName });
+      });
   }
 }

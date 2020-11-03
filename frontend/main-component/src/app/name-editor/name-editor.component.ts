@@ -1,5 +1,6 @@
-import {Component, Output} from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-name-editor',
@@ -8,9 +9,10 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NameEditorComponent {
   name: string;
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal) {}
 
-  close() {
-    localStorage.setItem("usernam", name);
+  close(setName: string) {
+    localStorage.setItem('username', setName);
+    this.activeModal.close(setName);
   }
 }
