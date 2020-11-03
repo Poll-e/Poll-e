@@ -7,14 +7,23 @@
     align-items: center;
     flex-direction: column;
   }
+
 </style>
-<!-- Toolbar
+
+<div class="container">
 <div class="hello">
-  <span>Welcome {{this.name}}</span>
-  <div>
-    <input class="input form-control m-2" placeholder="title" />
-    <button class="btn btn-primary m-2">Let's go!</button>
+  <div class="card-body">
+
+      <p class="m-2">Welcome, {{this.name}}</p>
+      <div>
+        <div class="m-2">
+          <button class="btn-lg btn-primary">I want to create a new poll</button>
+        </div>
+        <div class="m-2">
+          <button class="btn-lg btn-primary">I want to join to an existing poll</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
--->
 <router-outlet></router-outlet>
