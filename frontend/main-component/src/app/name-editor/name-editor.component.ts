@@ -13,7 +13,7 @@ export class NameEditorComponent {
   constructor(public activeModal: NgbActiveModal) {}
 
   close(setName: string): void {
-    localStorage.setItem('username', setName);
+    sessionStorage.setItem('username', setName);
     this.activeModal.close(setName);
   }
 }
