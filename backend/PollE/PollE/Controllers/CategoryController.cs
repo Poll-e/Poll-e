@@ -18,11 +18,24 @@ namespace PollE.Controllers
         {
             _logger = logger;
         }
+        
+        private readonly List<string> categories = new List<string>()
+        {
+            "Restaurants",
+            "Books",
+            "Hotels",
+            "Drinks",
+            "Sports",
+            "Foods",
+            "Movies",
+            "Girls",
+            "Cars"
+        };
 
         [HttpGet]
         IEnumerable<string> Get()
         {
-            throw new NotImplementedException();
+            return categories;
         }
     }
 }
