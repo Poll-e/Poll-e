@@ -12,7 +12,7 @@ import { PollRoomComponent } from './components/poll-room/poll-room.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NameEditorComponent
+    NameEditorComponent,
     PollCreateComponent,
     PollRoomComponent
   ],

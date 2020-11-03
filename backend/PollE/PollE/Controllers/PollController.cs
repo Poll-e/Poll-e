@@ -24,7 +24,7 @@ namespace PollE.Controllers
         [HttpPost]
         public PollCreated Post([FromBody] PollCreate create)
         {
-            throw new NotImplementedException();
+            return new PollCreated(){Code = "123456"};
         }
 
         [HttpGet]
