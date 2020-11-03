@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PollE.DataAccess.DataService;
+using PollE.DataAccess.Repositories;
 
 namespace PollE
 {
@@ -27,6 +29,12 @@ namespace PollE
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            
+            //DI
+            services.AddSingleton<IPollRepository, InMemoryPollRepository>();
+            services.AddSingleton<ICodeRepository, InMemoryCodeRepository>();
+            services.AddTransient<IPollService, PollService>();
+            services.AddTransient<ICodeService, CodeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
