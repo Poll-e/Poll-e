@@ -6,7 +6,7 @@ import {PollCreateComponent} from './components/poll-create/poll-create.componen
 import {PollRoomComponent} from './components/poll-room/poll-room.component';
 
 const routes: Routes = [
-  {path: 'choose', component: PathChooserComponent},
+  {path: '', component: PathChooserComponent},
   {path: 'join', component: JoinRoomComponent},
   {path: 'polls/create', component: PollCreateComponent},
   {path: 'polls/:code', component: PollRoomComponent}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-join-room',
@@ -8,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class JoinRoomComponent implements OnInit {
   code: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  gotoRoom() {}
+  gotoRoom(): void {
+    console.log(this.code);
+    this.router.navigate(['polls', this.code]);
+  }
 }

@@ -18,7 +18,8 @@ import { PollRoomComponent } from './components/poll-room/poll-room.component';
     PollCreateComponent,
     PollRoomComponent,
     NameEditorComponent,
-    PathChooserComponent
+    PathChooserComponent,
+    JoinRoomComponent
   ],
   imports: [
     BrowserModule,
