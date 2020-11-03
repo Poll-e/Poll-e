@@ -28,10 +28,10 @@ namespace PollE.Controllers
         }
 
         [HttpGet]
-        [Route("{code?}")]
+        [Route("{Code?}")]
         public Poll Get([FromRoute] string Code)
         {
-            throw new NotImplementedException();
+            return new Poll{Title = "Tilte",Code = Code, Category = "testcat"};
         }
     }
 }
