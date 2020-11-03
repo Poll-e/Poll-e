@@ -3,8 +3,11 @@
     <div class="card-body">
       <p class="m-2">Enter your code, please</p>
       <div>
-        <input id="code" type="text" class="form-control " [(ngModel)]="code" placeholder="Your Code"
-          ngbTooltip="Tooltip on top" />
+        <input id="code" type="text" class="form-control" [(ngModel)]="code" placeholder="Your Code"
+          ngbTooltip="Your poll-rooms code (6 digit)" [class.is-invalid]="error" (change)="error=false"/>
+        <div class="invalid-feedback">
+          Please provide a valid code for your poll!
+        </div>
       </div>
       <div class="m-2">
         <button class="btn btn-info" (click)="gotoRoom()">OK</button>

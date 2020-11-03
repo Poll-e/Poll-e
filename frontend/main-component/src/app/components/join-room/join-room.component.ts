@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {PollService} from '../../services/poll.service';
 
 @Component({
   selector: 'app-join-room',
@@ -9,14 +10,17 @@ import {FormsModule} from '@angular/forms';
   styleUrls: ['./join-room.component.css'],
 })
 export class JoinRoomComponent implements OnInit {
-  code: string;
+  code = '';
+  error = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private pollService: PollService) {}
 
   ngOnInit(): void {}
 
   gotoRoom(): void {
-    console.log(this.code);
-    this.router.navigate(['polls', this.code]);
+    this.pollService
+      .getPoll(this.code)
+      .subscribe(_ => this.router.navigate(['polls', this.code]),
+          error => this.error = true);
   }
 }
