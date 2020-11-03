@@ -14,7 +14,6 @@ export class AppComponent {
   title = 'main-component';
 
   ngOnInit() {
-    console.log({name: sessionStorage.getItem('username')})
     if (!sessionStorage.getItem('username')) {
       this.openDialog();
     }
