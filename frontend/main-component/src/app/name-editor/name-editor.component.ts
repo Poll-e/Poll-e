@@ -11,7 +11,8 @@ export class NameEditorComponent {
   name: string;
   constructor(public activeModal: NgbActiveModal) {}
 
-  close(setName: string) {
+  close(setName: string): void {
+    console.log(setName);
     localStorage.setItem('username', setName);
     this.activeModal.close(setName);
   }

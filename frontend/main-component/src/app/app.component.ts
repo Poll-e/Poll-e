@@ -13,7 +13,7 @@ export class AppComponent {
 
   title = 'main-component';
   savedName = '';
-  name = `Welcome, ${this.savedName}`;
+  name = "";
 
   ngOnInit() {
     console.log(localStorage.getItem('username'));
@@ -27,8 +27,7 @@ export class AppComponent {
         centered: true,
       })
       .result.then(() => {
-        this.router.navigateByUrl('/');
-        console.log({ name: this.savedName });
+        this.name = localStorage.getItem("username");
       });
   }
 }
