@@ -8,13 +8,15 @@ import { PollCreateComponent } from './components/poll-create/poll-create.compon
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PathChooserComponent } from './components/path-chooser/path-chooser.component';
+import { JoinRoomComponent } from './components/join-room/join-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PollCreateComponent,
     NameEditorComponent,
-    PathChooserComponent
+    PathChooserComponent,
+    JoinRoomComponent
   ],
   imports: [
     BrowserModule,

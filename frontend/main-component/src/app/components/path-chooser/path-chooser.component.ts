@@ -17,4 +17,8 @@ export class PathChooserComponent implements OnInit {
   chooseNew() {
     this.router.navigate(['polls/create']);
   }
+
+  joinRoom() {
+    this.router.navigate(['join']);
+  }
 }
