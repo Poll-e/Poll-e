@@ -1,1 +1,23 @@
-<p>poll-create works!</p>
+<div class="col d-flex justify-content-center">
+<div class="card col-lg-6 m-4">
+  <div class="card-title m-4">
+    <h1 class="text-center">Create a poll!</h1>
+  </div>
+  <hr>
+  <div class="card-body">
+    <div class="form-group col">
+      <label for="title" class="col-form-label">Title:</label>
+      <div class="">
+        <input id="title" type="text" class="form-control " [(ngModel)]="title" placeholder="Title" placement="top" ngbTooltip="Tooltip on top" />
+      </div>
+      <label for="category" class="col-form-label">
+        Select your category:
+      </label>
+      <input id="category" type="text" class="form-control" [(ngModel)]="category" [ngbTypeahead]="searchCategories"/>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-primary" [disabled]="!(title && category)" (click)="createPoll()">Create poll</button>
+    </div>
+  </div>
+</div>
+</div>
