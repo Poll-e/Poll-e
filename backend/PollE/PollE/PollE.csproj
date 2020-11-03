@@ -10,5 +10,11 @@
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DataAccess\Entities" />
+      <Folder Include="DataAccess\Repositories" />
+      <Folder Include="Services" />
+    </ItemGroup>
+
 
 </Project>
