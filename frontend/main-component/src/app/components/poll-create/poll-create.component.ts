@@ -34,7 +34,7 @@ export class PollCreateComponent implements OnInit {
   }
 
   createPoll(): void {
-    this.pollService.createCategory(this.title, this.category)
+    this.pollService.createPoll(this.title, this.category)
       .subscribe(code => this.router.navigate(['polls', code]));
   }
 }

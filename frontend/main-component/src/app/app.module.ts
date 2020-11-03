@@ -7,11 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PollCreateComponent } from './components/poll-create/poll-create.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { PollRoomComponent } from './components/poll-room/poll-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PollCreateComponent
+    PollCreateComponent,
+    PollRoomComponent
   ],
   imports: [
     BrowserModule,
