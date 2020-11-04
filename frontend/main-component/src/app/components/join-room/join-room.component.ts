@@ -17,7 +17,7 @@ export class JoinRoomComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  gotoRoom(): void {
+  gotoRoom(): void {  
     this.pollService
       .getPoll(this.code)
       .subscribe(_ => this.router.navigate(['polls', this.code]),

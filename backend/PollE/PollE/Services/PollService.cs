@@ -25,7 +25,7 @@ namespace PollE.DataAccess.DataService
             {
                 Title = poll.Title,
                 Code = poll.Code.Code,
-                Category = poll.Category.Name
+                Category = poll.Category.Label
             };
         }
 
@@ -41,7 +41,7 @@ namespace PollE.DataAccess.DataService
                 Category = new CategoryEntity
                 {
                     Id = catId,
-                    Name = pollCreate.Category
+                    Label = pollCreate.Category
                 },
                 Code = generatedCode
             };
