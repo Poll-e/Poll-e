@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,12 +16,12 @@ namespace PollE.DataAccess.Entities
         public string Title { get; set; }
         
         
-        //[Column("category")]
-        //public int? CategoryId { get; set; }
-        public CategoryEntity Category { get; set; }
+        [Column("category")]
+        public string Category { get; set; }
 
-        //[Column("code")]
-        //public int? CodeId { get; set; }
-        public CodeEntity Code { get; set; }
+        [Column("code")]
+        public string Code { get; set; }
+        
+        public ICollection<PollOptionEntity> Options { get; set; }
     }
 }

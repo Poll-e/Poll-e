@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using PollE.Controllers.DTOs;
 using PollE.DataAccess.Entities;
 using PollE.DataAccess.Repositories;
+using Poll = PollE.Model.Poll;
 
 namespace PollE.DataAccess.DataService
 {
@@ -17,41 +17,25 @@ namespace PollE.DataAccess.DataService
             _codeService = codeService ?? throw new ArgumentNullException(nameof(codeService));
         }
         
-        public async Task<Poll> GetPollByCode(string code)
+        public Task<Poll> GetPollByCode(string code)
         {
-            var poll = await _pollRepository.GetPollByCodeAsync(code);
-            
-            return new Poll
-            {
-                Title = poll.Title,
-                Code = poll.Code.Code,
-                Category = poll.Category.Label
-            };
+            return _pollRepository.GetPollByCodeAsync(code);
         }
 
-        public async Task<PollCreated> CreatePoll(PollCreate pollCreate)
+        public async Task<string> CreatePoll(string title, string category)
         {
-            //TODO Category Repository
-            var generatedCode = await _codeService.GenerateCode();
-            int catId = 1;
+            var code = await _codeService.GenerateCode();
             
-            var poll = new PollEntity
+            var poll = new Poll
             {
-                Title = pollCreate.Title,
-                Category = new CategoryEntity
-                {
-                    Id = catId,
-                    Label = pollCreate.Category
-                },
-                Code = generatedCode
+                Title = title,
+                Category = category,
+                Code = code
             };
             
             await _pollRepository.InsertPollAsync(poll);
 
-            return new PollCreated
-            {
-                Code = generatedCode.Code
-            };
+            return code;
         }
     }
 }

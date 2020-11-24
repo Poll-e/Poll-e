@@ -26,7 +26,8 @@ namespace PollE.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PollCreate create)
         {
-            return Ok(await _pollService.CreatePoll(create));
+            var code = await _pollService.CreatePoll(create.Title, create.Category);
+            return Ok(new PollCreated(){Code = code});
         }
 
         [HttpGet]

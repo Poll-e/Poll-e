@@ -32,11 +32,14 @@ namespace PollE
             services.AddSwaggerGen();
             
             //DI
-            services.AddSingleton<IPollRepository, InMemoryPollRepository>();
-            services.AddSingleton<ICodeRepository, InMemoryCodeRepository>();
+            services.AddSingleton<IPollRepository, SqlPollRepository>();
+            services.AddSingleton<IPollOptionRepository, SqlPollOptionRepository>();
+            services.AddSingleton<IVoteRepository, SqlVoteRepository>();
+
             services.AddTransient<IPollService, PollService>();
             services.AddTransient<ICodeService, CodeService>();
-            services.AddDbContext<DBContext>();
+            
+            services.AddDbContext<PollEDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

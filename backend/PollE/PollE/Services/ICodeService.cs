@@ -5,6 +5,6 @@ namespace PollE.DataAccess.DataService
 {
     public interface ICodeService
     {
-        public Task<CodeEntity> GenerateCode();
+        public Task<string> GenerateCode();
     }
 }

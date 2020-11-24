@@ -4,29 +4,37 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PollE.Controllers.DTOs;
 using PollE.DataAccess.Entities;
+using static PollE.DataAccess.Utils.Converter;
+using Poll = PollE.Model.Poll;
 
 namespace PollE.DataAccess.Repositories
 {
     public class SqlPollRepository : IPollRepository
     {
-        private DbSet<PollEntity> Polls { get => _dbContext.Polls;}
-        private readonly DBContext _dbContext;
+        private DbSet<PollEntity> Polls { get => _pollEDbContext.Polls;}
+        private readonly PollEDbContext _pollEDbContext;
         
-        public SqlPollRepository(DBContext dbContext)
+        public SqlPollRepository(PollEDbContext pollEDbContext)
         {
-            _dbContext = dbContext;
+            _pollEDbContext = pollEDbContext;
         }
         
         
-        public Task<PollEntity> GetPollByCodeAsync(string code)
+        public async Task<Poll> GetPollByCodeAsync(string code)
         {            
-            return Polls.SingleOrDefaultAsync(poll => poll.Code.Code == code);
+            var poll = await Polls.SingleOrDefaultAsync(poll => poll.Code == code);
+            return poll.ToModel();
         }
 
-        public async Task InsertPollAsync(PollEntity poll)
+        public async Task InsertPollAsync(Poll poll)
         {
-            await Polls.AddAsync(poll);
-            await _dbContext.SaveChangesAsync();
+            await Polls.AddAsync(new PollEntity()
+            {
+                Title = poll.Title,
+                Category = poll.Category,
+                Code = poll.Code
+            });
+            await _pollEDbContext.SaveChangesAsync();
         }
     }
 }

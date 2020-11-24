@@ -7,14 +7,7 @@ namespace PollE.DataAccess.DataService
 {
     public class CodeService: ICodeService
     {
-        private readonly ICodeRepository _codeRepository;
-
-        public CodeService(ICodeRepository codeRepository)
-        {
-            _codeRepository = codeRepository ?? throw new ArgumentNullException(nameof(codeRepository));
-        }
-
-        public async Task<CodeEntity> GenerateCode()
+        public Task<string> GenerateCode()
         {
             string code = String.Empty;
             Random r = new Random();
@@ -25,10 +18,8 @@ namespace PollE.DataAccess.DataService
 
                 code += generated.ToString();
             }
-            
-            //TODO Check if an existing code was generated
 
-            return await _codeRepository.InsertCodeAsync(code);
+            return Task.FromResult(code);
         }
     }
 }

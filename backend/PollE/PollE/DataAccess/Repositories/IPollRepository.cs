@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using PollE.DataAccess.Entities;
+using PollE.Model;
 
 namespace PollE.DataAccess.Repositories
 {
     public interface IPollRepository
     {
-        public Task<PollEntity> GetPollByCodeAsync(string code);
+        public Task<Poll> GetPollByCodeAsync(string code);
 
-        public Task InsertPollAsync(PollEntity poll);
+        public Task InsertPollAsync(Poll poll);
     }
 }

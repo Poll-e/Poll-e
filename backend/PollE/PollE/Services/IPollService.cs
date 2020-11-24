@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using PollE.Controllers.DTOs;
 using PollE.DataAccess.Entities;
+using PollE.Model;
 
 namespace PollE.DataAccess.DataService
 {
@@ -8,7 +8,7 @@ namespace PollE.DataAccess.DataService
     {
         public Task<Poll> GetPollByCode(string code);
         
-        public Task<PollCreated> CreatePoll(PollCreate pollCreate);
+        public Task<string> CreatePoll(string title, string category);
 
     }
 }
