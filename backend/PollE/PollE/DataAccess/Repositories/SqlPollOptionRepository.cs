@@ -12,7 +12,15 @@ namespace PollE.DataAccess.Repositories
     class SqlPollOptionRepository : IPollOptionRepository
     {
         private readonly PollEDbContext _pollEDbContext;
-        private DbSet<PollOptionEntity> Options;
+        private DbSet<PollOptionEntity> Options
+        {
+            get => _pollEDbContext.Options;
+        }
+        private DbSet<PollOptionImageEntity> Images
+        {
+            get => _pollEDbContext.OptionImages;
+        }
+
 
         public SqlPollOptionRepository(PollEDbContext pollEDbContext)
         {
@@ -28,13 +36,14 @@ namespace PollE.DataAccess.Repositories
                 FileType = image.FileType,
                 Name = image.Name
             };
-            imageEntity = (await _pollEDbContext.AddAsync(imageEntity)).Entity;
-            var pollEntity = new PollOptionEntity()
+            await Images.AddAsync(imageEntity);
+            var optionEntity = new PollOptionEntity()
             {
                 Image = imageEntity,
                 Poll = _pollEDbContext.Polls.Single(x => x.Id==poll.Id),
                 Text = option.Text
             };
+            await Options.AddAsync(optionEntity);
             await _pollEDbContext.SaveChangesAsync();
         }
 
@@ -46,7 +55,7 @@ namespace PollE.DataAccess.Repositories
             return options.Select(x => x.ToModel());
         }
 
-        public async Task<PollOption> GetOptionsForPollWithId(Poll poll, int id)
+        public async Task<PollOption> GetOptionForPollWithId(Poll poll, int id)
         {
             var option = await Options
                 .SingleOrDefaultAsync(x => x.Id == id && x.Poll.Id == poll.Id);

@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
-using PollE.DataAccess.Entities;
 
-namespace PollE.DataAccess.DataService
+namespace PollE.Services
 {
     public interface ICodeService
     {

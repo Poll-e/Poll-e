@@ -1,0 +1,10 @@
+<table class="table" *ngIf="result">
+  <thead>
+  <td>Text</td>
+  <td>Result</td>
+  </thead>
+  <tr *ngFor="let vote of result| async">
+    <td>{{vote.text}}</td>
+    <td>{{vote.likes}}/{{vote.likes+vote.dislikes}}</td>
+  </tr>
+</table>

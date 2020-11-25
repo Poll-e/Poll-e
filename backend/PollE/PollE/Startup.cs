@@ -10,9 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PollE.DataAccess;
 using PollE.DataAccess.DataService;
 using PollE.DataAccess.Entities;
 using PollE.DataAccess.Repositories;
+using PollE.Services;
 
 namespace PollE
 {
@@ -32,12 +34,15 @@ namespace PollE
             services.AddSwaggerGen();
             
             //DI
-            services.AddSingleton<IPollRepository, SqlPollRepository>();
-            services.AddSingleton<IPollOptionRepository, SqlPollOptionRepository>();
-            services.AddSingleton<IVoteRepository, SqlVoteRepository>();
+            services.AddTransient<IPollRepository, SqlPollRepository>();
+            services.AddTransient<IPollOptionRepository, SqlPollOptionRepository>();
+            services.AddTransient<IVoteRepository, SqlVoteRepository>();
 
+            
             services.AddTransient<IPollService, PollService>();
             services.AddTransient<ICodeService, CodeService>();
+            services.AddTransient<IVoteService, VoteService>();
+            services.AddTransient<IOptionService, OptionService>();
             
             services.AddDbContext<PollEDbContext>();
         }

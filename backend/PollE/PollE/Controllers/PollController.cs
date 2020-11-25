@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PollE.Controllers.DTOs;
 using PollE.DataAccess.DataService;
+using PollE.Services;
 
 namespace PollE.Controllers
 {
@@ -20,7 +21,7 @@ namespace PollE.Controllers
         public PollController(ILogger<PollController> logger, IPollService pollService)
         {
             _logger = logger;
-            _pollService = pollService ?? throw new ArgumentNullException(nameof(pollService));
+            this._pollService = pollService ?? throw new ArgumentNullException(nameof(pollService));
         }
 
         [HttpPost]
@@ -31,10 +32,10 @@ namespace PollE.Controllers
         }
 
         [HttpGet]
-        [Route("{Code?}")]
-        public async Task<IActionResult> Get([FromRoute] string Code)
+        [Route("{code?}")]
+        public async Task<IActionResult> Get([FromRoute] string code)
         {
-            return Ok( await _pollService.GetPollByCode(Code));
+            return Ok( await _pollService.GetPollByCode(code));
         }
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NameEditorComponent } from './name-editor/name-editor.component';
+import { NameEditorComponent } from './components/name-editor/name-editor.component';
 import { Router } from '@angular/router';
 
 @Component({

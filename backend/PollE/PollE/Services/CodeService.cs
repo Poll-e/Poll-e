@@ -1,9 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using PollE.DataAccess.Entities;
-using PollE.DataAccess.Repositories;
 
-namespace PollE.DataAccess.DataService
+namespace PollE.Services
 {
     public class CodeService: ICodeService
     {

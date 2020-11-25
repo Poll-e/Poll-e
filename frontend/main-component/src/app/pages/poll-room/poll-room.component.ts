@@ -10,13 +10,12 @@ import {CommonModule} from '@angular/common';
   styleUrls: ['./poll-room.component.css']
 })
 export class PollRoomComponent implements OnInit {
-  constructor(route: ActivatedRoute, pollService: PollService) {
-    route.params.subscribe(x => pollService.getPoll(x.code).subscribe(x => this.room = x));
+  constructor(route: ActivatedRoute, private pollService: PollService) {
+    route.params.subscribe(x => pollService.getPoll(x.code).subscribe(y => this.room = y));
   }
 
   room: PollGetResponse;
 
   ngOnInit(): void {
   }
-
 }

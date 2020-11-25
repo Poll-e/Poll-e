@@ -22,7 +22,7 @@ namespace PollE.DataAccess.Repositories
         
         public async Task<Poll> GetPollByCodeAsync(string code)
         {            
-            var poll = await Polls.SingleOrDefaultAsync(poll => poll.Code == code);
+            var poll = await Polls.SingleOrDefaultAsync(x => x.Code == code);
             return poll.ToModel();
         }
 

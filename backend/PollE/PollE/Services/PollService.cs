@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using PollE.DataAccess.Entities;
+using PollE.DataAccess.DataService;
 using PollE.DataAccess.Repositories;
 using Poll = PollE.Model.Poll;
 
-namespace PollE.DataAccess.DataService
+namespace PollE.Services
 {
     public class PollService : IPollService
     {
@@ -13,8 +13,8 @@ namespace PollE.DataAccess.DataService
 
         public PollService(IPollRepository pollRepository, ICodeService codeService)
         {
-            _pollRepository = pollRepository ?? throw new ArgumentNullException(nameof(pollRepository));
-            _codeService = codeService ?? throw new ArgumentNullException(nameof(codeService));
+            this._pollRepository = pollRepository ?? throw new ArgumentNullException(nameof(pollRepository));
+            this._codeService = codeService ?? throw new ArgumentNullException(nameof(codeService));
         }
         
         public Task<Poll> GetPollByCode(string code)

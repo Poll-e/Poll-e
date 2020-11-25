@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using PollE.Model;
 
-namespace PollE.DataAccess.DataService
+namespace PollE.Services
 {
     public interface IOptionService
     {

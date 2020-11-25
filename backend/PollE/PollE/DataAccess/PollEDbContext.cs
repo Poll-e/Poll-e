@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PollE.Controllers.DTOs;
+using PollE.DataAccess.Entities;
 
-namespace PollE.DataAccess.Entities
+namespace PollE.DataAccess
 {
     public class PollEDbContext : DbContext
     {

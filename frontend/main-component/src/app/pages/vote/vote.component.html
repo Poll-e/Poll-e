@@ -1,0 +1,6 @@
+<div *ngIf="currentOption">
+  {{currentOption.text}}
+  <img [src]="'/api/polls/'+code+'/options/'+currentOption.id" width="100%">
+  <button class="btn btn-danger col-6" (click)="like(false)">Dislike</button>
+  <button class="btn btn-success col-6" (click)="like(true)">Like</button>
+</div>

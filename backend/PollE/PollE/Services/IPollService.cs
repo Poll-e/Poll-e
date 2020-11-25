@@ -1,8 +1,7 @@
 using System.Threading.Tasks;
-using PollE.DataAccess.Entities;
 using PollE.Model;
 
-namespace PollE.DataAccess.DataService
+namespace PollE.Services
 {
     public interface IPollService
     {

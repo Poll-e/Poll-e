@@ -13,7 +13,7 @@ namespace PollE.DataAccess.Repositories
 
         Task<IEnumerable<PollOption>> GetOptionsForPoll(Poll poll);
 
-        Task<PollOption> GetOptionsForPollWithId(Poll poll, int Id);
+        Task<PollOption> GetOptionForPollWithId(Poll poll, int Id);
 
         Task<Image> GetImageForOption(PollOption option);
     }

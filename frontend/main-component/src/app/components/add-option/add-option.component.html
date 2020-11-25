@@ -1,0 +1,19 @@
+<div class="alert alert-dark">
+  <div class="row" style="margin-bottom:15px;">
+    <label for="text_input">
+      Text:
+    </label>
+    <div class="input-group mb-3">
+      <input id="text_input" class="form-control" type="text" [(ngModel)]="text" required>
+      <div class="input-group-append">
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+        <button type="button" class="btn btn-primary" (click)="file.click()">Upload Image and create</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <span class="upload" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+    </div>
+  </div>
+</div>

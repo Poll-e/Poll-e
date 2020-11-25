@@ -4,12 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PollCreateComponent } from './components/poll-create/poll-create.component';
-import { NameEditorComponent } from './name-editor/name-editor.component';
+import { PollCreateComponent } from './pages/poll-create/poll-create.component';
+import { NameEditorComponent } from './components/name-editor/name-editor.component';
 import {HttpClientModule} from '@angular/common/http';
-import { PathChooserComponent } from './components/path-chooser/path-chooser.component';
-import { JoinRoomComponent } from './components/join-room/join-room.component';
-import { PollRoomComponent } from './components/poll-room/poll-room.component';
+import { PathChooserComponent } from './pages/path-chooser/path-chooser.component';
+import { JoinRoomComponent } from './pages/join-room/join-room.component';
+import { PollRoomComponent } from './pages/poll-room/poll-room.component';
+import { AddOptionComponent } from './components/add-option/add-option.component';
+import { PollOptionResultListComponent } from './components/poll-option-result-list/poll-option-result-list.component';
+import { VoteComponent } from './pages/vote/vote.component';
+import { PollDetailsComponent } from './pages/poll-details/poll-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { PollRoomComponent } from './components/poll-room/poll-room.component';
     PollRoomComponent,
     NameEditorComponent,
     PathChooserComponent,
-    JoinRoomComponent
+    JoinRoomComponent,
+    AddOptionComponent,
+    PollOptionResultListComponent,
+    VoteComponent,
+    PollDetailsComponent
   ],
   imports: [
     BrowserModule,

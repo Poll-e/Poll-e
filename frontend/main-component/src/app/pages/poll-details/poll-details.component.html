@@ -1,0 +1,10 @@
+<button class="btn-success btn" [routerLink]="'vote'">Vote</button>
+<div class="col" *ngIf="code">
+  <h2>Result:</h2>
+  <app-poll-option-result-list [result]="result"></app-poll-option-result-list>
+</div>
+
+<div class="col" *ngIf="code">
+  <h2>Add option!</h2>
+  <app-add-option [code]="code" [onUploaded]="onUploaded"></app-add-option>
+</div>
